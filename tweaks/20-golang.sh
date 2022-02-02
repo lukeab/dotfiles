@@ -9,7 +9,7 @@ declare -a deps=(
 )
 
 for dep in "${deps[@]}"; do
-	if ! executableInPath ${dep}; then
+	if ! hash ${dep} 2>/dev/null; then
 		die "please install '${dep}' to continue"
 	fi
 done
